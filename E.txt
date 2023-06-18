@@ -1,0 +1,243 @@
+A centralized database is basically a type of database that is stored, located as well as maintained at a single location only. This type of database is modified and managed from that location itself. This location is thus mainly any database system or a centralized computer system. The centralized location is accessed via an internet connection (LAN, WAN, etc). This centralized database is mainly used by institutions or organizations. 
+A distributed database is basically a type of database which consists of multiple databases that are connected with each other and are spread across different physical locations. The data that is stored in various physical locations can thus be managed independently of other physical locations. The communication between databases at different physical locations is thus done by a computer network.
+
+
+Basis of Comparison 
+Centralized database and Distributed database
+Definition:It is a database that is stored, located as well as maintained at a single location only.
+	   It is a database that consists of multiple databases which are connected with each other and are spread across different      physical locations.
+Access time: The data access time in the case of multiple users is more in a centralized database.	
+             The data access time in the case of multiple users is less in a distributed database.
+Management of data:The management, modification, and backup of this database are easier as the entire data is present at the same location.	
+The management, modification, and backup of this database are very difficult as it is spread across different physical locations.
+View: This database provides a uniform and complete view to the user.	
+       Since it is spread across different locations thus it is difficult to provide a uniform view to the user.
+Data Consistency:This database has more data consistency in comparison to distributed database.	
+                 This database may have some data replications thus data consistency is less.
+Failure: The users cannot access the database in case of database failure occurs.
+         In a distributed database, if one database fails users have access to other databases.
+Cost: A centralized database is less costly.	
+      This database is very expensive.
+Maintenance:Ease of maintenance because the whole of the data and information is available at a single location and thus, easy to reach and access.	
+          It is difficult to maintain because of the distribution of data and information at varied places. So, there is a need to check for data redundancy issues and how to maintain data consistency.
+Efficient:A centralized database is less efficient as data finding becomes quite complex because of the storing of data and information at a particular place. 	
+         A distributed database is more efficient than a centralized database because of the splitting up of data at several places which makes data finding simple and less time-consuming.
+Response Speed: The response speed is more in comparison to a distributed database.	
+                The response speed is less in comparison to a centralized database.
+
+Advantages of centralized : Integrity of data
+Security
+Easy access to all information
+Data is easily portable.
+Advantages of distributed: 
+High performance because of the division of workload.
+High availability because of the readiness of available nodes to do work.
+Independent nodes and better control over resources
+dis of cen:
+Data searching takes time
+In case of failure of a centralized server, the whole database will be lost.
+If multiple users try to access the data at the same time then it may create issues.
+dis of dis:
+It is quite large and complex so difficult to use and maintain.
+Difficult to provide security
+Issue of data integrity
+Increase in storage and infrastructure requirements
+
+............................................................................................................
+
+A tuple is an essential component in the relational database management system. Relational database management stores data in tables.
+
+A tuple contains all the information of a particular entity. The table is composed of fields and a tuple. A tuple represents a row in the table and the data associated with the entity.
+
+Fields are the components that provide structure for a table. You can't have a table without fields. For instance, you can create an empty table that has fields defined but no rows (records). In databases, fields are used to maintain relationships between tables.
+
+Fields are the columns.
+
+............................................................................
+TCL stands for Transaction Control Language in SQL. Transaction Control Language (TCL) is a set of special commands that deal with the transactions within the database. Basically, they are used to manage transactions within the database. TCL commands are also used for maintaining the consistency of the database.
+
+COMMIT : 
+This command is used to save the data permanently. 
+Whenever we perform any of the DML command like -INSERT, DELETE or UPDATE, these can be rollback if the data is not stored permanently. So in order to be at the safer side COMMIT command is used. 
+
+Syntax:  
+
+commit; 
+ROLLBACK : 
+This command is used to get the data or restore the data to the last savepoint or last committed state. If due to some reasons the data inserted, deleted or updated is not correct, you can rollback the data to a particular savepoint or if savepoint is not done, then to the last committed state. 
+
+Syntax:  
+
+rollback;
+
+Properties of Transactions
+Transactions have the following four standard properties, usually referred to by the acronym ACID.
+
+Atomicity − ensures that all operations within the work unit are completed successfully. Otherwise, the transaction is aborted at the point of failure and all the previous operations are rolled back to their former state.
+
+Consistency − ensures that the database properly changes states upon a successfully committed transaction.
+
+Isolation − enables transactions to operate independently of and transparent to each other.
+
+Durability − ensures that the result or effect of a committed transaction persists in case of a system failure.
+
+A COMMIT is the SQL command used in the transaction tables or database to make the current transaction or database statement as permanent. It shows the successful completion of a transaction. If we have successfully executed the transaction statement or a simple database query, we want to make the changes permanent. We need to perform the commit command to save the changes, and these changes become permanent for all users. Furthermore, once the commit command is executed in the database, we cannot regain its previous states in which it was earlier before the execution of the first statement.
+
+The SQL ROLLBACK command is used to roll back the current transaction state if any error occurred during the execution of a transaction. In a transaction, the error can be a system failure, power outage, incorrect execution of the transaction, system crash, etc. Generally, a rollback command performs the current transaction's rollback action to return the transaction on its previous state or the first statement. A rollback command can only be executed if the user has not performed the COMMIT command on the current transaction or statement.
+
+
+...........................................................................................................
+SET operators are special type of operators which are used to combine the result of two queries.
+There are certain rules which must be followed to perform operations using SET operators in SQL. Rules are as follows:
+
+The number and order of columns must be the same.
+Data types must be compatible.
+
+UNION:
+UNION will be used to combine the result of two select statements.
+Duplicate rows will be eliminated from the results obtained after performing the UNION operation.
+
+UNION ALL
+This operator combines all the records from both the queries.
+Duplicate rows will be not be eliminated from the results obtained after performing the UNION ALL operation.
+
+INTERSECT:
+It is used to combine two SELECT statements, but it only returns the records which are common from both SELECT statements.
+
+MINUS
+It displays the rows which are present in the first query but absent in the second query with no duplicates.
+SET OPERATORS
+CONDITIONS : QUERIES MUST CONTAIN SAME NUMBER OF COLUMS SELECTED, AND CORRESPONING COLUMN MUST BE OF SAME TYPE
+UNION
+SELECT ENAME, JOB,SAL ,COMM, DEPTNO FROM SCOTT.EMP WHERE DEPTNO=20 UNION
+SELECT ENAME, JOB,SAL ,COMM, DEPTNO FROM SCOTT.EMP WHERE JOB='MANAGER'; UNION ALL
+SELECT ENAME, JOB,SAL ,COMM, DEPTNO FROM SCOTT.EMP WHERE DEPTNO=20 UNION ALL
+SELECT ENAME, JOB,SAL ,COMM, DEPTNO FROM SCOTT.EMP WHERE JOB='MANAGER'; INTERSECT
+SELECT ENAME, JOB,SAL ,COMM, DEPTNO FROM SCOTT.EMP WHERE DEPTNO=20 INTERSECT
+SELECT ENAME, JOB,SAL ,COMM, DEPTNO FROM SCOTT.EMP WHERE JOB='MANAGER'; MINUS
+SELECT ENAME, JOB,SAL ,COMM, DEPTNO FROM SCOTT.EMP WHERE DEPTNO=20 MINUS
+SELECT ENAME, JOB,SAL ,COMM, DEPTNO FROM SCOTT.EMP WHERE JOB='MANAGER';
+.......................................................................................................................
+
+TYPES OF JOINS:
+
+
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+CARTESIAN PRODUCT OPERATOR x A - B
+Result relation associates every tuple of A with
+every tuple of B
+
+Join operations are combination of two or more relations.
+• Join operation can be defined as a cross product followed by selections and projections.
+• join operation in Relational algebra is denoted
+by the symbol RELATIONALE MODEL > JOINS A X (X ENDS ARE ARE CLOSED) B Where A and B are relations.
+
+A join operation between two attributes consist of equalities through attributes it is called equijoin
+• Equijoin is performed with additional projection
+RELATIONALE MODEL > EQUI JOIN
+A (X AND A SYMBOL ENDS ARE CLOSED) A.DEPTNO = B.DEPTNO B
+Equijoin operation is denoted as below Where A and B are two relations with DEPTNO as equality field
+
+Natural Join operations is a binary operation
+• Natural join allows combining selections and a Cartesian product in to one operation
+• Natural Join operation is performed on a selection forcing equality on common attributes
+• Natural Join removes duplicate attributes.
+
+The outer-join operation is an extension of join operation to deal with missing information
+• There are three forms of outer join
+o LEFT OUTER JOIN
+o RIGHT OUTER JOIN
+o FULL OUTER JOIN
+
+(INNER) JOIN: Returns records that have matching values in both tables
+LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+
+NON EQUI JOIN performs a JOIN using comparison operator other than equal(=) sign like >, <, >=, <= with conditions.
+SYNTAX:
+
+SELECT *  
+FROM table_name1, table_name2  
+WHERE table_name1.column [> |  < |  >= | <= ] table_name2.column;
+
+
+
+
+JOINS : SELECTING DATA FROM MORE THAN ONE TABLE
+
+
+CROSS JOIN / CARTISIAN PRODUCT
+SELECT ENAME, JOB, SAL, DNAME, LOC FROM SCOTT.EMP, SCOTT.DEPT;
+SELECT ENAME, JOB, SAL, DNAME, LOC FROM SCOTT.EMP CROSS JOIN SCOTT.DEPT; EQUI JOIN
+SELECT ENAME, JOB, SAL, DNAME, LOC, SCOTT.EMP.DEPTNO FROM SCOTT.EMP , SCOTT.DEPT WHERE SCOTT.EMP.DEPTNO = SCOTT.DEPT.DEPTNO;
+NATURAL JOIN
+SELECT ENAME, JOB, SAL, DNAME, LOC FROM SCOTT.EMP NATURAL JOIN SCOTT.DEPT; TABLE ALIAS:
+ 
+SELECT ENAME, JOB, SAL, DNAME, LOC, E.DEPTNO FROM SCOTT.EMP E, SCOTT.DEPT D WHERE E.DEPTNO = D.DEPTNO;
+OUTER JOINS
+SELECT ENAME, JOB, SAL, DNAME, LOC, E.DEPTNO, D.DEPTNO FROM SCOTT.EMP E, SCOTT.DEPT D WHERE E.DEPTNO (+) = D.DEPTNO;
+SELECT ENAME, JOB, SAL, DNAME, LOC, E.DEPTNO, D.DEPTNO FROM SCOTT.EMP E, SCOTT.DEPT D WHERE E.DEPTNO = D.DEPTNO (+);
+SELECT ENAME, JOB, SAL, DNAME, LOC, E.DEPTNO, D.DEPTNO FROM SCOTT.EMP E LEFT OUTER JOIN SCOTT.DEPT D ON E.DEPTNO=D.DEPTNO;
+SELECT ENAME, JOB, SAL, DNAME, LOC, E.DEPTNO, D.DEPTNO FROM SCOTT.EMP E RIGHT OUTER JOIN SCOTT.DEPT D ON E.DEPTNO=D.DEPTNO;
+SELECT ENAME, JOB, SAL, DNAME, LOC, E.DEPTNO, D.DEPTNO FROM SCOTT.EMP E FULL OUTER JOIN SCOTT.DEPT D ON E.DEPTNO=D.DEPTNO;
+NON EQUI JOIN
+SELECT ENAME,JOB,SAL ,D.DEPTNO FROM SCOTT.EMP E, SCOTT.DEPT D WHERE SAL BETWEEN 1000 AND 2000;
+CREATE TABLE SALGRADE(GRADE NUMBER, LOSAL NUMBER, HISAL NUMBER); INSERT INTO SALGRADE VALUES(2, 1001, 2000);
+INSERT INTO SALGRADE VALUES(3, 2001, 3000);
+INSERT INTO SALGRADE VALUES(4, 3001, 4000);
+INSERT INTO SALGRADE VALUES(5, 4001, 5000); SELECT * FROM SALGRADE;
+SELECT E.ENAME,E.JOB,E.SAL ,E.DEPTNO , S.GRADE FROM SCOTT.EMP E, SALGRADE S WHERE SAL BETWEEN LOSAL AND HISAL;
+DELETE FROM SALGRADE WHERE GRADE=1; SELF JOIN
+SELECT E.ENAME , M.ENAME FROM SCOTT.EMP E, SCOTT.EMP M WHERE M.EMPNO = E.MGR; JOINING MORE THAN 2 TABLES:
+
+SELECT ENAME, JOB,SAL , DNAME, LOC, GRADE FROM SCOTT.EMP, SCOTT.DEPT, SALGRADE WHERE SCOTT.EMP.DEPTNO = SCOTT.DEPT.DEPTNO AND SCOTT.SAL BETWEEN LOSAL AND HISAL;
+ 
+.................................................................................................................................
+In sum, the difference between ROWNUM and ROWID is that ROWNUM is temporary while ROWID is permanent. Another difference is that ROWID can be used to fetch a row, while ROWNUM only has meaning within the context of a single SQL statement, a way of referencing rows within a fetched result set.
+
+The output of ROWID is the physical address of a row.
+The output of ROWNUM is the sequence number of a row.
+ROWID helps to retrieve data from a row.
+ROWNUM allows retrieving a row containing data.
+
+TOP N ANALYSIS
+ROWNUM IS PSEUDO COLUMN TO DISPLAY THE ROW NUMBER SELECT ROWNUM, ENAME,JOB,SAL FROM SCOTT.EMP;
+SELECT ROWNUM, ENAME,JOB,SAL FROM ( SELECT * FROM SCOTT.EMP ORDER BY SAL DESC) WHERE ROWNUM <=5;
+SELECT ROWNUM, ENAME,JOB,SAL FROM ( SELECT * FROM SCOTT.EMP ORDER BY SAL ) WHERE ROWNUM <=5;
+SELECT ROWNUM, ENAME,JOB,COMM FROM ( SELECT * FROM SCOTT.EMP ORDER BY COMM ) WHERE ROWNUM <=5;
+
+...........................................................................................................................
+..........................................................................................
+
+GROUP FUNCTIONS [ GROUP BY CONDITIONS. SELECT ONLY THOSE COLUMNS THAT ARE PART OF GROUP BY CLAUSE OR APPLIED WITH GROUP FUNCTIONS ]
+SELECT SUM(SAL) FROM SCOTT.EMP; SELECT AVG(SAL) FROM SCOTT.EMP;
+SELECT MAX(SAL) FROM SCOTT.EMP; SELECT MIN(SAL) FROM SCOTT.EMP; 
+SELECT STDDEV(SAL) FROM SCOTT.EMP;
+SELECT VARIANCE(SAL) FROM SCOTT.EMP;
+SELECT DEPTNO, SUM(SAL) FROM SCOTT.EMP GROUP BY DEPTNO;
+SELECT JOB, AVG(SAL) FROM SCOTT.EMP GROUP BY JOB;
+SELECT DEPTNO, MAX(SAL) FROM SCOTT.EMP GROUP BY DEPTNO;
+SELECT DEPTNO, JOB, SUM(SAL) FROM SCOTT.EMP GROUP BY DEPTNO,JOB;
+SELECT COUNT(*) FROM SCOTT.EMP;
+SELECT COUNT(EMPNO) FROM SCOTT.EMP; 
+SELECT COUNT(COMM) FROM SCOTT.EMP;
+SELECT DEPTNO, JOB, COUNT(*) FROM SCOTT.EMP GROUP BY DEPTNO, JOB ORDER BY DESC;
+SELECT DEPTNO, AVG(SAL) FROM SCOTT.EMP GROUP BY DEPTNO HAVING AVG(SAL) > 2000;
+SELECT DEPTNO, AVG(SAL) FROM SCOTT.EMP HAVING AVG(SAL) > 2000 GROUP BY DEPTNO;
+SELECT DEPTNO,AVG(SAL) , COUNT(*) FROM SCOTT.EMP GROUP BY DEPTNO HAVING COUNT(*) > 3 ORDER BY DEPTNO;
+SELECT ROUND(AVG(SAL)) , DEPTNO FROM SCOTT.EMP GROUP BY DEPTNO;
+SELECT DEPTNO, JOB, SUM(SAL) FROM SCOTT.EMP WHERE JOB NOT IN ('PRESIDENT') HAVING SUM(SAL) > 1500 GROUP BY DEPTNO, JOB ORDER BY DEPTNO;
+SELECT DEPTNO, JOB, SUM(SAL), SUM(COMM) FROM SCOTT.EMP GROUP BY CUBE(DEPTNO, JOB) ORDER BY DEPTNO;
+SELECT DEPTNO, JOB, SUM(SAL) FROM SCOTT.EMP GROUP BY ROLLUP(DEPTNO, JOB) ORDER BY DEPTNO;
+
+
+The COUNT() function returns the number of rows that matches a specified criterion.
+The AVG() function returns the average value of a numeric column. 
+The SUM() function returns the total sum of a numeric column.
+The MIN() function returns the smallest value of the selected column.
+The MAX() function returns the largest value of the selected column.
+
+................................................................................................................
+
