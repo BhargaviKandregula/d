@@ -1,0 +1,101 @@
+1.All information in Database must explicitly and logically represented in tables as data values.
+2. Every item of data must be logically addressable with the help of table name, Primary key, value and Column Name.
+3. Database must support null values which is not zero but value not assigned for missing or inapplicable information.
+4. A description a database must be maintain in the form of data dictionary accessible with appropriate authority.
+5. Database must support data definitions, view definition, manipulation, constraints, authorization and transaction.
+6. Allow views which must be updatable.
+7. Update, delete and insert must allow on a set of records rather than on a single record in a table.
+8. Application program must remain unimpaired when any changes made in storage representation or
+access methods.
+9.Allow changing data definition and can split table in to many more tables.
+10. Constraints must be stored into system catalog or into meta data.
+11. Database must allow access that is distributed in other system
+12. If RDBMS supports a lower level language than it should not violate any constraint defined in higher
+level.
+
+The process of organizing data to minimize redundancy is called normalization.Normalization is to make relations with the entities in
+order to produce smaller, well-structured relations.
+Normalization involves dividing large, badly-formed tables into smaller, well-formed tables and defining relationships between them.
+
+1NF A relation is in 1NF if it contains an atomic value.
+2NF A relation will be in 2NF if it is in 1NF and all non-key attributes are fully functional dependent on the primary key.
+3NF A relation will be in 3NF if it is in 2NF and no transition dependency exists.
+
+
+Attribute Types
+• Simple attributes : [ simple attributes are not divided into
+parts example : age]
+• Composite attributes : [can be divided into subparts
+example: name: First name, Middle name, Last name ]
+•Composite attribute in hierarchy : [ Example : Address :
+POBox, Street, City , Country
+Street : Streent No. Name, Building no, flat no.
+Attribute Types
+• Single-valued attributes : [ Example: Student-Id is a single
+valued attribute]
+• Multi-Valued attributes : [Phone Number: A person can
+have zero, one or more phones ]
+•Derived attribute: [The value for this type of attribute can
+be derived from the values of other related attributes
+(base) Example :AGE FROM DOB
+Attribute Types
+• Null Value attribute : An attribute takes a null value when
+an entity does not have a value for it.
+•The null value may indicate “not applicable” for any
+entity.
+•Null value also designate that an attribute value is
+unknown that is value may be either missing or not known
+..........................................................................................
+Mapping cardinalities, or cardinality ratios, express the
+number of entities to which another entity can be associated
+via a relationshipset.
+
+One to one. An entity in A is associated with at most one
+entity in B, and an entity in B is associated with at most one
+entity in A.
+One to many. An entity in A is associated with any number
+(zero or more) of entities in B. An entity in B, however, can be
+associated with at most one entity in A.
+Many to One. An entity in A is associated with at most one
+entity in B. An entity in B, however, can be associated with any
+number (zero or more) of entities in A.
+Many to Many. An entity in A is associated with any number
+(zero or more) of entities in B, and an entity in B is associated
+with any number (zero or more) of entities in A.
+..............................................................................
+
+adv of dbms:
+
+To  provide a way to store data
+• Retrieve database information that is both convenient and efficient.
+• Designed to manage large bodies of information
+• Ensure the safety of the information stored
+• Share data among several users
+• Avoid possible inconsistent results.
+
+dis of files
+
+Data Redundancy [the same information may be duplicated in several
+places (files) ]
+• Data Inconsistence [redundancy leads to higher storage and access cost
+which may lead to data inconsistency that is, the various copies of the same
+data may no longer agree]
+• Difficult to access data [conventional file-processing environments do not
+allow needed data to be retrieved in a convenient and efficient manner]
+• Data Isolation [Data is scattered in various files in different formats, writing
+new application programs to retrieve the appropriate data is difficult]
+
+Integrity Problem [The data values must satisfy certain types of consistency
+constraints which is difficult when constraints involve several data items from
+different files]
+• Atomicity Problem [If a failure occurs, the data must be restored to the
+consistent state that existed prior to the failure. It is difficult to ensure
+atomicity in a conventional file-processing system]
+• Concurrent dissimilarity [In multiuser system environment, interaction of
+concurrent updates may result in inconsistent data. To guard against this
+possibility, the file system does not maintain any form of supervision]
+• Security Problem [Not every user of the database system should be able to
+access all the data. Enforcing such security constraints is difficult in File System
+
+
+
