@@ -1,0 +1,356 @@
+ DATABASE MANAGEMENT SYSTEM AND SQL ASSIGNMENT
+
+Question- The Innovation & Incubation Center Dubai is an initiative by the government of Dubai. The center is to collaborate academics and industry to bridge the gap of skills and innovation that the current industry needs. The center operates for universities & industry to encourage students, faculty, and industries in UAE to come up with new innovative idea and merge to work together and develop products and services. The center is required to develop database application to maintain the data. The functionality of the center is to have information about students, faculty, industry, projects, employees, customers, investors. 
+For the given scenario do the following:
+ a. Identify the Entities and its attributes in a tabular form with the meaning [5 Marks] 
+b. Draw ER diagram for the same scenario [10 Marks] 
+c. Develop Relational Model for the same design using all required constraints [10 Marks] 
+d. Convert the conceptual design to physical database using Oracle SQL Data [ write query to demonstrate the database creation [ 5 Marks]. 
+e. Demonstrate the database with query and design.
+
+Answers:
+a) Identifying the Key Entities in the given scenario: Students, Faculty, Industry, Projects, Employees, Customers, and Investors.
+Identifying the Attributes: 
+Students -> [ StudentID, Name, Email, PhoneNumber, ProgramDepartment,       YearOfStudy]
+Faculty -> [FacultyId, Name, Email, PhoneNumber, Department]
+Industry-> [IndustryId, Name, Email, Phone Number, Location]
+Projects-> [ProjectId, Title, Description, StartDate, EndDate]
+Employees-> [EmployeeId, Name, Email, PhoneNumber, PositionRole, Department]
+Customers-> [CustomerId, Name, Email, PhoneNumber, CompanyName]
+Investors-> [InvestorId, Name, Email, PhoneNumber, CompanyName]
+
+1.Students
+
+Attribute	Data Type	Meaning
+StudentID	Integer	A unique identifier for each student
+Name	VARCHAR (50)	The name of the student
+Email	VARCHAR (50)	The email address of the student
+PhoneNumber	VARCHAR (50)	The Phone number of the student
+ProgramDepartment	VARCHAR (50)	The academic program the student is enrolled in
+YearOfStudy	Integer	Current pursuing Year of the student
+
+
+2. Faculty
+Attribute	Data Type	Meaning
+FacultyID	Integer	A unique identifier for each faculty member
+Name	VARCHAR (50)	The name of the faculty member
+Email	VARCHAR (50)	The email address of the faculty member
+PhoneNumber	VARCHAR (50)	The Phone number of the faculty member
+Department	VARCHAR (50)	The department the faculty member belongs to
+3. Industry
+Attribute	Data Type	Meaning
+IndustryID	Integer	A unique identifier for each industry
+Name	VARCHAR (50)	The name of the industry
+Email	VARCHAR (50)	The email address of the industry
+PhoneNumber	VARCHAR (20)	The Phone number of the industry
+Location	VARCHAR (50)	The location of the industry
+		
+4. Projects
+Attribute	Data Type	Meaning
+ProjectID	Integer	A unique identifier for each project
+Title	VARCHAR (100)	The title or name of the project
+Description	VARCHAR (200)	A brief description of the project
+StartDate	VARCHAR (200)	The start date of the project
+EndDate	VARCHAR (200)	The end date of the project
+5. Employees
+Attribute	Data Type	Meaning
+EmployeeID	Integer	A unique identifier for each employee
+Name	VARCHAR (50)	The name of the employee
+Email	VARCHAR (50)	The email address of the employee
+PhoneNumber	VARCHAR (20)	The Phone number of the employee
+PositionRole	VARCHAR (50)	The role or position of the employee
+Department	VARCHAR (50)	The department the employee belongs to
+6. Customers
+Attribute	Data Type	Meaning
+CustomerID	Integer	A unique identifier for each customer
+Name	VARCHAR (50)	The name of the customer
+Email	VARCHAR (50)	The email address of the customer
+PhoneNumber	VARCHAR (20)	The Phone number of the customer
+CompanyName	VARCHAR (50)	The company or organization the customer represents
+7. Investors
+Attribute	Data Type	Meaning
+InvestorID	Integer	A unique identifier for each investor
+Name	VARCHAR (50)	The name of the investor
+Email	VARCHAR (50)	The email address of the investor
+PhoneNumber	VARCHAR (20)	The Phone number of the investor
+CompanyName	VARCHAR (50)	The company or organization the investor represents
+
+
+
+
+
+
+
+b) Draw ER diagram for the same scenario.
+
+
+ 
+
+Elements:
+The rectangle shape is used to represent entities in an ER diagram. An entity represents a real-world object or concept that has properties or attributes. Each rectangle in the diagram represents a specific entity, and the attributes of the entity are listed within the rectangle. 
+The oval shape is used to represent attributes in an ER diagram. The lines are used to show the relation between the entities.
+Students, Faculty, Industry, Projects, Employees, Customers, and Investors are the entities.
+c) Develop Relational Model for the same design using all required constraints
+
+Student
+ 
+Faculty 
+ 
+    Industry
+ 
+Projects
+ 
+Employees
+ 
+Customers
+ 
+Investors
+ 
+
+The Relational Database design was created by considering Domain, Tuple Uniqueness, Key constraint, Entity Integrity, and Referential Integrity constraints.
+Here in our scenario, we practiced domain constraint that allows values or data types for a particular attribute in a relation. It ensured that the values stored in the attribute belong to the specified domain or data type. 
+Also, each tuple (row) in a relation is unique based on one or more attributes. There are no duplicate tuples in the relation. Tuple Uniqueness is also followed.
+Also ensured that the selected attribute(s), known as the key, uniquely identifying each tuple, and is not containing any duplicate values. For example, in a relation of students, the attribute "StudentID" can be specified as the key constraint to ensure its uniqueness.
+The entity integrity constraint is also practiced as it ensures that each tuple in a relation has a unique identifier or primary key value and that it is not null. It guarantees that the primary key attribute(s) of an entity cannot have null values and must uniquely identify each entity instance. This constraint enforces the integrity and consistency of the entity's data. For example, in a relation of employees, the entity integrity constraint ensures that the attribute "EmployeeID" cannot be null and must have a unique value for each employee.
+Referential integrity constraint establishes a relationship between two relations based on the values of a foreign key attribute and a primary key attribute. It ensures that the values of the foreign key attribute in one relation correspond to the values of the primary key attribute in another relation, preserving the integrity and consistency of the data. Example “StudentID” related in both students and projects tables.
+These all constraints play a crucial role in maintaining data integrity, consistency, and validity within a relational database system. They help enforce rules and relationships between data entities, ensuring accurate and meaningful data representation.
+
+d)  Now converting the conceptual design to physical database using oracle SQL data. 
+Creating the Students, Faculty, Industry, Projects, Employees, Customers, and Investors tables.
+CREATE TABLE Students (
+ 
+StudentID INT PRIMARY KEY,
+ 
+Name VARCHAR(50),
+ 
+Email VARCHAR(50),
+ 
+PhoneNumber VARCHAR(20),
+ 
+ProgramDepartment VARCHAR(50),
+ 
+YearOfStudy INT
+ 
+);
+ 
+CREATE TABLE Faculty (
+ 
+FacultyID INT PRIMARY KEY,
+ 
+Name VARCHAR(50),
+ 
+Email VARCHAR(50),
+ 
+PhoneNumber VARCHAR(20),
+ 
+Department VARCHAR(50)
+ 
+);
+ 
+CREATE TABLE Industry (
+ 
+IndustryID INT PRIMARY KEY,
+ 
+Name VARCHAR(50),
+ 
+Email VARCHAR(50),
+ 
+PhoneNumber VARCHAR(20),
+ 
+Location VARCHAR(50)
+ 
+);
+ 
+CREATE TABLE Projects (
+ 
+ProjectID INT PRIMARY KEY,
+ 
+Title VARCHAR(100),
+ 
+Description VARCHAR(200),
+ 
+StartDate VARCHAR(200),
+ 
+EndDate VARCHAR(200)
+ 
+);
+ 
+CREATE TABLE Employees (
+ 
+EmployeeID INT PRIMARY KEY,
+ 
+Name VARCHAR(50),
+ 
+Email VARCHAR(50),
+ 
+PhoneNumber VARCHAR(20),
+ 
+PositionRole VARCHAR(50),
+ 
+Department VARCHAR(50)
+ 
+);
+ 
+CREATE TABLE Customers (
+ 
+CustomerID INT PRIMARY KEY,
+ 
+Name VARCHAR(50),
+ 
+Email VARCHAR(50),
+ 
+PhoneNumber VARCHAR(20),
+ 
+CompanyName VARCHAR(50)
+ 
+);
+ 
+CREATE TABLE Investors (
+ 
+InvestorID INT PRIMARY KEY,
+ 
+Name VARCHAR(50),
+ 
+Email VARCHAR(50),
+ 
+PhoneNumber VARCHAR(20),
+ 
+CompanyName VARCHAR(50)
+ 
+);
+
+OUTPUT:
+ 
+All the tables are created.
+
+Next, we are using DESCRIBE command to know the structure of the tables created. 
+DESCRIBE Students;
+DESCRIBE Faculty;
+DESCRIBE Industry;
+DESCRIBE Projects;
+DESCRIBE Employees;
+DESCRIBE Customers;
+DESCRIBE Investors;
+OUTPUT:
+
+
+
+
+  
+ 
+ 
+
+ 
+ 
+ 
+ Successfully we viewed the structure of all the tables.
+
+Now we are inserting the values into the respective tables:
+Inserting Values into Students Table:
+INSERT INTO Students (StudentID, Name, Email, PhoneNumber, ProgramDepartment, YearOfStudy)
+VALUES (1, 'Bhargavi', 'bhargavi123@example.com', '1234567899', 'Computer Science', 4);
+INSERT INTO Students (StudentID, Name, Email, PhoneNumber, ProgramDepartment, YearOfStudy)
+VALUES (2, 'Rocky', 'rocky@example.com', '8765444677', 'Mechanical', 1);
+INSERT INTO Students (StudentID, Name, Email, PhoneNumber, ProgramDepartment, YearOfStudy)
+VALUES (3, 'Rohith', 'rohith@example.com', '8005444677', 'Civil', 2);
+INSERT INTO Students (StudentID, Name, Email, PhoneNumber, ProgramDepartment, YearOfStudy)
+VALUES (4, 'Pranav', 'pranav@example.com', '9765444667', 'Civil', 1);
+INSERT INTO Students (StudentID, Name, Email, PhoneNumber, ProgramDepartment, YearOfStudy)
+VALUES (5, 'Goldy', 'goldy@example.com', '7775444677', 'Computer Science', 1);
+
+Inserting Values into Faculty Table: 
+INSERT INTO Faculty (FacultyID, Name, Email, PhoneNumber, Department)
+VALUES (1, 'Suchi', 'Suchi@example.com', '1234567788', 'Computer Science');
+INSERT INTO Faculty (FacultyID, Name, Email, PhoneNumber, Department)
+VALUES (2, 'Zaheeruddin', 'Zaheeruddin@example.com', '5555555555', 'Computer Science');
+INSERT INTO Faculty (FacultyID, Name, Email, PhoneNumber, Department)
+VALUES(3, 'Kavitha', 'kavitha@example.com', '34343434344', 'Civil');
+INSERT INTO Faculty (FacultyID, Name, Email, PhoneNumber, Department)
+VALUES (4, 'Tara', 'Tara@example.com', '5555555222', 'Mechanical');
+INSERT INTO Faculty (FacultyID, Name, Email, PhoneNumber, Department)
+VALUES (5, 'Rupini', 'Rupini@example.com', '3353555555', 'Civil');    
+Inserting Values into Industry Table:
+INSERT INTO Industry (IndustryID, Name, Email, PhoneNumber, Location)
+VALUES (1, 'ABC Industries', 'abc@example.com', '1111111111', 'Dubai');
+INSERT INTO Industry (IndustryID, Name, Email, PhoneNumber, Location)
+VALUES (2, 'ABCD Industries', 'abcd@example.com', '2111111111', 'Dubai');
+INSERT INTO Industry (IndustryID, Name, Email, PhoneNumber, Location)
+VALUES (3, 'ABCDE Industries', 'abcde@example.com', '3111111111', 'Dubai');
+INSERT INTO Industry (IndustryID, Name, Email, PhoneNumber, Location)
+VALUES (4, 'ABCDEF Industries', 'abcdef@example.com', '4111111111', 'Dubai');
+INSERT INTO Industry (IndustryID, Name, Email, PhoneNumber, Location)
+VALUES (5, 'ABCDEFG Industries', 'abcdefg@example.com', '5111111111', 'Dubai');
+Inserting Values into ProjectsTable:
+INSERT INTO Projects (ProjectID, Title, Description, StartDate, EndDate)
+VALUES (1, 'SCRUM', 'Scrum is very useful agile methodology', '2023-01-01', '2023-06-30');
+INSERT INTO Projects (ProjectID, Title, Description, StartDate, EndDate)
+VALUES (2, 'Kanban', 'Kanban is very useful agile methodology', '2023-02-01', '2023-07-30');
+INSERT INTO Projects (ProjectID, Title, Description, StartDate, EndDate)
+VALUES (3, 'Marketing', 'Best Practices of marketing', '2023-07-01', '2023-04-30');
+INSERT INTO Projects (ProjectID, Title, Description, StartDate, EndDate)
+VALUES (4, 'Construction', 'Constructing the building', '2023-07-09', '2023-04-23');
+INSERT INTO Projects (ProjectID, Title, Description, StartDate, EndDate)
+VALUES (5, 'Building', 'Building a plan is essential', '2023-08-01', '2023-06-28');
+ Inserting Values into Employees Table:
+INSERT INTO Employees (EmployeeID, Name, Email, PhoneNumber, PositionRole, Department) 
+VALUES (1, 'Emily Davis', 'emily@example.com', '2222222222', 'Manager', 'Sales');
+INSERT INTO Employees (EmployeeID, Name, Email, PhoneNumber, PositionRole, Department) 
+VALUES (2, 'Emilyyyyy', 'emilyyyy@example.com', '2222922222', 'Manager', 'IT');
+INSERT INTO Employees (EmployeeID, Name, Email, PhoneNumber, PositionRole, Department)
+VALUES (3, 'Davis', 'davis@example.com', '6222222222', 'Engineer', 'IT');
+INSERT INTO Employees (EmployeeID, Name, Email, PhoneNumber, PositionRole, Department)
+VALUES (4, 'Roshan', 'roshan@example.com', '2822222222', 'Manager', 'Civil');
+INSERT INTO Employees (EmployeeID, Name, Email, PhoneNumber, PositionRole, Department)
+VALUES (5, 'Roshini', 'roshini@example.com', '2322222222', 'Manager', 'IT');
+Inserting Values into Customers Table:
+INSERT INTO Customers (CustomerID, Name, Email, PhoneNumber, CompanyName)
+VALUES (1, 'XYZ Corporation', 'xyz@example.com', '3333333333', 'XYZ Corp');
+INSERT INTO Customers (CustomerID, Name, Email, PhoneNumber, CompanyName)
+VALUES (2, 'ABC Corporation', 'abc@example.com', '4333333333', 'ABC Corp');
+INSERT INTO Customers (CustomerID, Name, Email, PhoneNumber, CompanyName)
+VALUES (3, 'ABCD Corporation', 'abcd@example.com', '5333333333', 'abcd Corp');
+INSERT INTO Customers (CustomerID, Name, Email, PhoneNumber, CompanyName)
+VALUES (4, 'XYZY Corporation', 'xyzy@example.com', '6333333333', 'XYZY Corp');
+INSERT INTO Customers (CustomerID, Name, Email, PhoneNumber, CompanyName)
+VALUES (5, 'XXX Corporation', 'xxx@example.com', '7333333333', 'XXX Corp');
+Inserting Values into Investors Table:
+INSERT INTO Investors (InvestorID, Name, Email, PhoneNumber, CompanyName)
+VALUES (1, 'RAM', 'ram@example.com', '9444444444', 'Investment Firm');
+INSERT INTO Investors (InvestorID, Name, Email, PhoneNumber, CompanyName)
+VALUES (2, 'Deep', 'deep@example.com', '4474444444', 'Marketing Firm');
+INSERT INTO Investors (InvestorID, Name, Email, PhoneNumber, CompanyName)
+VALUES (3, 'Rahul', 'rahul@example.com', '0444444444', 'IT Firm');
+INSERT INTO Investors (InvestorID, Name, Email, PhoneNumber, CompanyName)
+VALUES (4, 'Akhil', 'akhil@example.com', '4444444444', 'IT Firm');
+INSERT INTO Investors (InvestorID, Name, Email, PhoneNumber, CompanyName)
+VALUES (5, 'Akhila', 'akhila@example.com', '4444444444', 'Investment Firm');
+We Inserted the values into the respective tables. Now we are viewing the table.
+Select*from Students;
+Select*from Faculty;
+Select*from Industry;
+Select*from Projects;
+Select*from Employees;
+Select*from Customers;
+Select*from Investors;
+
+OUTPUT:
+ 
+ 
+
+
+
+
+ 
+ 
+
+ 
+ 
+ 
+
+We successfully viewed the values which we inserted into the respective tables.
+Therefore, we can conclude that we converted the conceptual design to physical database using oracle SQL data.
+
+
+
+
+
